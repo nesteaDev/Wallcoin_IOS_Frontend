@@ -3,7 +3,7 @@ import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 // import {useNavigation} from '@react-navigation/native';
 import styles from './authStyles';
 
-const InicioScreen = () => {
+const AuthComponent = () => {
   // const navigation = useNavigation();
 
   // const handleLoginPress = () => {
@@ -32,4 +32,4 @@ const InicioScreen = () => {
   );
 };
 
-export default InicioScreen;
+export default AuthComponent;
