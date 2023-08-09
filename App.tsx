@@ -1,9 +1,10 @@
 import React from 'react';
 
-import InicioScreen from './src/components/Auth/authComponent';
+//import HomeComponent from './src/components/Home/homeComponent';
+import AuthComponent from './src/components/Auth/authComponent';
 
 function App(): JSX.Element {
-  return <InicioScreen />;
+  return <AuthComponent />;
 }
 
 export default App;
