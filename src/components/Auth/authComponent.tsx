@@ -1,15 +1,16 @@
 import React from 'react';
 import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import Swiper from 'react-native-swiper';
-// import {useNavigation} from '@react-navigation/native';
 import styles from './authStyles';
 
-const AuthComponent = () => {
-  // const navigation = useNavigation();
+import { StackScreenProps } from '@react-navigation/stack/lib/typescript/src/types';
 
-  // const handleLoginPress = () => {
-  //   navigation.navigate('Login');
-  // };
+
+interface Props extends StackScreenProps<any, any> {
+  //navigation: StackNavigationProp<any, any>;
+  //route: RouteProp<any, any>;
+}
+const AuthComponent = ({navigation}: Props) => {
 
   return (
     <ImageBackground
@@ -53,10 +54,11 @@ const AuthComponent = () => {
           </View>
         </Swiper>
         <View style={styles.container}>
-          <Text style={styles.title}>Bienvenido a WalletApp</Text>
+          <Text style={styles.title}>
+            Bienvenido a <Text style={styles.titleStrong}>Wallcoin</Text>
+          </Text>
           <Text style={styles.description}>
-            Inicia sesión o regístrate para acceder a todas las funciones de la
-            aplicación.
+            Únete a la revolución digital y empieza a tomar el control de tu dinero.
           </Text>
           <TouchableOpacity
             style={styles.button}
@@ -68,7 +70,7 @@ const AuthComponent = () => {
               ¿Ya tienes una cuenta?{' '}
               <Text
                 style={styles.descriptionFooterStrong}
-                onPress={() => console.log('Go to Login')}>
+                onPress={() => navigation.navigate('PageScreen01')}>
                 Iniciar sesión
               </Text>
             </Text>

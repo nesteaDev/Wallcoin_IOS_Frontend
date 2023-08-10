@@ -25,11 +25,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
   },
+  titleStrong: {
+    color: '#D57329',
+  },
   description: {
     fontSize: 16,
     color: '#14213d',
     textAlign: 'center',
-    marginBottom: 20,
+    paddingHorizontal: 35,
   },
   button: {
     flexDirection: 'row',
@@ -39,7 +42,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 25,
     borderRadius: 45,
-    marginTop: '4%',
+    marginTop: '8%',
     marginHorizontal: '3%',
     height: '20%',
   },
