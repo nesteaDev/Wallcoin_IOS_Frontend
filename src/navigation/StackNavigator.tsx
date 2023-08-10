@@ -3,8 +3,8 @@ import PageScreen01 from '../screens/PageScreen01';
 import PageScreen02 from '../screens/PageScreen02';
 import PageScreen03 from '../screens/PageScreen03';
 import PageScreen04 from '../screens/PageScreen04';
-import AuthComponent from '../components/Auth/authComponent';
-import React, { ReactElement } from 'react';
+//import AuthComponent from '../components/Auth/authComponent';
+import React from 'react';
 
 interface PersonaInterface {
   nombre: string;
@@ -29,7 +29,7 @@ export type RootStackParams = {
 
 const Stack = createStackNavigator<RootStackParams>();
 
-export const StackNavigator = (): ReactElement => {
+export const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -44,13 +44,8 @@ export const StackNavigator = (): ReactElement => {
         },
       }}>
       <Stack.Screen
-        name="AuthComponent"
-        options={{headerShown: false , title: 'Inicio'}}
-        component={AuthComponent}
-      />
-      <Stack.Screen
         name="PageScreen01"
-        options={{title: 'Home'}}
+        options={{headerShown: false, title: 'Home'}}
         component={PageScreen01}
       />
       <Stack.Screen
@@ -68,6 +63,11 @@ export const StackNavigator = (): ReactElement => {
         options={{title: 'Notificaciones'}}
         component={PageScreen04}
       />
+      {/* <Stack.Screen
+        name="AuthComponent"
+        options={{headerShown: false, headerTransparent: true}}
+        component={AuthComponent}
+      /> */}
     </Stack.Navigator>
   );
 };

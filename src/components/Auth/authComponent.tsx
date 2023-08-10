@@ -1,16 +1,17 @@
 import React from 'react';
-import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
+import {View, Text, ImageBackground, TouchableOpacity, Alert} from 'react-native';
 import Swiper from 'react-native-swiper';
 import styles from './authStyles';
 
-import { StackScreenProps } from '@react-navigation/stack/lib/typescript/src/types';
+// import { StackScreenProps } from '@react-navigation/stack/lib/typescript/src/types';
+// import { useNavigation } from '@react-navigation/native';
 
 
-interface Props extends StackScreenProps<any, any> {
-  //navigation: StackNavigationProp<any, any>;
-  //route: RouteProp<any, any>;
-}
-const AuthComponent = ({navigation}: Props) => {
+// interface Props extends StackScreenProps<any, any> {
+//   //navigation: StackNavigationProp<any, any>;
+//   //route: RouteProp<any, any>;
+// }
+const AuthComponent = () => {
 
   return (
     <ImageBackground
@@ -58,11 +59,12 @@ const AuthComponent = ({navigation}: Props) => {
             Bienvenido a <Text style={styles.titleStrong}>Wallcoin</Text>
           </Text>
           <Text style={styles.description}>
-            Únete a la revolución digital y empieza a tomar el control de tu dinero.
+            Únete a la revolución digital y empieza a tomar el control de tu
+            dinero.
           </Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => console.log('Go to Home')}>
+            onPress={() => Alert.alert('Go to Home')}>
             <Text style={styles.buttonText}>Regístrate</Text>
           </TouchableOpacity>
           <View>
@@ -70,7 +72,7 @@ const AuthComponent = ({navigation}: Props) => {
               ¿Ya tienes una cuenta?{' '}
               <Text
                 style={styles.descriptionFooterStrong}
-                onPress={() => navigation.navigate('PageScreen01')}>
+                onPress={() => Alert.alert('Go to Home')}>
                 Iniciar sesión
               </Text>
             </Text>

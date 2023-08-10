@@ -12,8 +12,6 @@ interface Props extends StackScreenProps<any, any>  {
 export const PageScreen01 = ( { navigation }: Props) => {
   return (
     <View>
-      <Text>Home</Text>
-
       <TouchableOpacity
         style={styles.button}
         onPress={() =>
@@ -49,6 +47,13 @@ export const PageScreen01 = ( { navigation }: Props) => {
         }>
         <Text style={styles.buttonText}>Icono Notificación</Text>
       </TouchableOpacity>
+
+      {/* <TouchableOpacity
+        style={styles.button}
+        onPress={() =>
+          navigation.navigate('AuthComponent')}>
+        <Text style={styles.buttonText}>Log In</Text>
+      </TouchableOpacity> */}
     </View>
   );
 };
