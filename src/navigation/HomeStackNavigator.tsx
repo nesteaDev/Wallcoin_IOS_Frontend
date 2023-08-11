@@ -1,7 +1,8 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import PageScreen02 from '../screens/PageScreen02';
 import React from 'react';
 import HomeScreen from '../screens/Home/HomeScreen';
+import ProfilePage from '../screens/Profile/ProfilePage';
+import NotificationPage from '../screens/Notifications/NotificationPage';
 
 interface PersonaInterface {
   nombre: string;
@@ -9,10 +10,17 @@ interface PersonaInterface {
   urlImagen: string;
 }
 
+interface NotificacionInterface {
+  destino: string;
+  fecha: string;
+  monto: string;
+}
+
 
 export type RootStackParams = {
   HomeScreen: undefined;
-  PageScreen02: PersonaInterface;
+  ProfilePage: PersonaInterface;
+  NotificationPage: NotificacionInterface;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -37,9 +45,14 @@ export const HomeStackNavigator = () => {
         component={HomeScreen}
       />
       <Stack.Screen
-        name="PageScreen02"
+        name="ProfilePage"
         options={{title: 'Tu Perfil'}}
-        component={PageScreen02}
+        component={ProfilePage}
+      />
+      <Stack.Screen
+        name="NotificationPage"
+        options={{title: 'Notificaciones'}}
+        component={NotificationPage}
       />
     </Stack.Navigator>
   );

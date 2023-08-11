@@ -16,7 +16,7 @@ export const TabsNavigator = (): ReactElement => {
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.4)',
         tabBarStyle: {
-          backgroundColor: '#D57329',
+          backgroundColor: '#3498db',
 
           height: '6.5%',
           paddingBottom: 8,

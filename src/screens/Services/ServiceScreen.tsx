@@ -4,9 +4,10 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  StyleSheet,
   Alert,
+  ImageBackground,
 } from 'react-native';
+import styles from './ServicesPageStyles';
 
 
 type Service = {
@@ -33,40 +34,19 @@ const ServiceScreen = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Servicios de Billetera Virtual</Text>
-      <FlatList
-        data={services}
-        renderItem={renderService}
-        keyExtractor={(item, index) => index.toString()}
-      />
-    </View>
+    <ImageBackground
+      source={require('../../assets/backGround.jpeg')}
+      style={styles.backgroundImage}>
+      <View style={styles.container}>
+        <Text style={styles.header}>Servicios de Billetera Virtual</Text>
+        <FlatList
+          data={services}
+          renderItem={renderService}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
+    </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: 'white',
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  serviceItem: {
-    backgroundColor: '#f0f0f0',
-    padding: 15,
-    marginBottom: 10,
-    borderRadius: 5,
-    alignItems: 'center',
-  },
-  serviceTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#3498db',
-  },
-});
 
 export default ServiceScreen;
