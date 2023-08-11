@@ -14,7 +14,7 @@ interface Props extends StackScreenProps<any, any> {
   //route: RouteProp<any, any>;
 }
 
-const HomeScreen = ({navigation}: Props ) => {
+const HomePage = ({navigation}: Props ) => {
   const [balance, setBalance] = useState(100.0);
 
   const handleReload = () => {
@@ -31,24 +31,29 @@ const HomeScreen = ({navigation}: Props ) => {
 
   return (
     <ImageBackground
-      source={require('../../assets/backGround.jpeg')}
+      source={require('../../../assets/backGround.jpeg')}
       style={styles.backgroundImage}>
       <View style={styles.headerButtons}>
         <Text
           style={styles.containerIcon}
-          onPress={() => navigation.navigate('ProfilePage', {
-            nombre: 'Nestea Quiroga',
-            numeroCuenta: 'Nestea_03924',
-            urlImagen: 'dsfgeradfgadsgdfgdfsg.jpg',
-          })}>
+          onPress={() =>
+            navigation.navigate('ProfilePage', {
+              nombre: 'Nestea Quiroga',
+              numeroCuenta: 'Nestea_03924',
+              urlImagen: 'dsfgeradfgadsgdfgdfsg.jpg',
+            })
+          }>
           <Icon name="person" size={30} color="rgba(255, 255, 255, 0.8)" />
         </Text>
-        <Text style={styles.containerIcon} onPress={() =>
-          navigation.navigate('NotificationPage', {
-            destino: 'Jose Perez',
-            fecha: '12/12/2021',
-            monto: '1000',
-          })}>
+        <Text
+          style={styles.containerIcon}
+          onPress={() =>
+            navigation.navigate('NotificationPage', {
+              destino: 'Jose Perez',
+              fecha: '12/12/2021',
+              monto: '1000',
+            })
+          }>
           <Icon
             name="notifications"
             size={30}
@@ -73,4 +78,4 @@ const HomeScreen = ({navigation}: Props ) => {
 };
 
 
-export default HomeScreen;
+export default HomePage;

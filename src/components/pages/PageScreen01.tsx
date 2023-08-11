@@ -1,15 +1,14 @@
-import { StackScreenProps } from '@react-navigation/stack';
+import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import { Text, TouchableOpacity, View} from 'react-native';
-import styles from '../components/Auth/authStyles';
+import {Text, TouchableOpacity, View} from 'react-native';
+import styles from './Auth/AuthPageStyles';
 
-
-interface Props extends StackScreenProps<any, any>  {
+interface Props extends StackScreenProps<any, any> {
   //navigation: StackNavigationProp<any, any>;
   //route: RouteProp<any, any>;
 }
 
-export const PageScreen01 = ( { navigation }: Props) => {
+export const PageScreen01 = ({navigation}: Props) => {
   return (
     <View>
       <TouchableOpacity
@@ -51,7 +50,7 @@ export const PageScreen01 = ( { navigation }: Props) => {
       {/* <TouchableOpacity
         style={styles.button}
         onPress={() =>
-          navigation.navigate('AuthComponent')}>
+          navigation.navigate('AuthPage')}>
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity> */}
     </View>

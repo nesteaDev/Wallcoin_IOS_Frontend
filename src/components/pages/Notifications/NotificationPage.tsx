@@ -33,7 +33,7 @@ function NotificationPage() {
 
   return (
     <ImageBackground
-      source={require('../../assets/backGround.jpeg')}
+      source={require('../../../assets/backGround.jpeg')}
       style={styles.backgroundImage}>
       <View style={styles.container}>
         <Text style={styles.title}>Historial de Notificaciones</Text>

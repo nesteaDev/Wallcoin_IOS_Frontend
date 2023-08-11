@@ -14,7 +14,7 @@ type Service = {
   title: string;
 };
 
-const ServiceScreen = () => {
+const ServicePage = () => {
   const services: Service[] = [
     {title: 'Enviar Dinero'},
     {title: 'Pagar Facturas'},
@@ -35,7 +35,7 @@ const ServiceScreen = () => {
 
   return (
     <ImageBackground
-      source={require('../../assets/backGround.jpeg')}
+      source={require('../../../assets/backGround.jpeg')}
       style={styles.backgroundImage}>
       <View style={styles.container}>
         <Text style={styles.header}>Servicios de Billetera Virtual</Text>
@@ -49,4 +49,4 @@ const ServiceScreen = () => {
   );
 };
 
-export default ServiceScreen;
+export default ServicePage;

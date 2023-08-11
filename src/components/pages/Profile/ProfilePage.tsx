@@ -1,7 +1,7 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React, {useEffect} from 'react';
 import {ImageBackground, Text, View} from 'react-native';
-import { RootStackParams } from '../../navigation/HomeStackNavigator';
+import {RootStackParams} from '../../../navigation/HomeStackNavigator';
 import styles from './ProfilePageStyles';
 
 // type RouterParams = {
@@ -22,7 +22,7 @@ function ProfilePage({navigation, route}: Props) {
 
   return (
     <ImageBackground
-      source={require('../../assets/backGround.jpeg')}
+      source={require('../../../assets/backGround.jpeg')}
       style={styles.backgroundImage}>
       <View>
         <Text>Tu Perfil:</Text>

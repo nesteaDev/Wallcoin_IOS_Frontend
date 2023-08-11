@@ -1,10 +1,10 @@
 import React from 'react';
 import {ReactElement} from 'react';
-import { Text} from 'react-native';
+import {Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HistoryScreen from '../screens/History/HistoryScreen';
-import ServiceScreen from '../screens/Services/ServiceScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
+import HistoryPage from '../components/pages/History/HistoryPage';
+import ServicePage from '../components/pages/Services/ServicePage';
 import HomeStackNavigator from './HomeStackNavigator';
 
 const Tab = createBottomTabNavigator();
@@ -68,17 +68,17 @@ export const TabsNavigator = (): ReactElement => {
             return <Text style={{color: props.color}}>T1</Text>;
           },
         }}
-        component={HistoryScreen}
+        component={HistoryPage}
       /> */}
       <Tab.Screen
         name="Transacciones"
         options={{
           title: 'Historial',
         }}
-        component={HistoryScreen}
+        component={HistoryPage}
       />
       <Tab.Screen name="Inicio" options={{}} component={HomeStackNavigator} />
-      <Tab.Screen name="Servicios" component={ServiceScreen} />
+      <Tab.Screen name="Servicios" component={ServicePage} />
     </Tab.Navigator>
   );
 };

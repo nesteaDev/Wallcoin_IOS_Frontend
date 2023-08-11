@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, FlatList, ImageBackground} from 'react-native';
-import styles from './HistoryScreenStyles';
+import styles from './HistoryPageStyles';
 
 type Transaction = {
   title: string;
@@ -8,7 +8,7 @@ type Transaction = {
   date: string;
 };
 
-const HistoryScreen = () => {
+const HistoryPage = () => {
   const transactions: Transaction[] = [
     {title: 'Compra en tienda', amount: '$50.00', date: '10 de agosto de 2023'},
     {title: 'Recarga de saldo', amount: '$30.00', date: '8 de agosto de 2023'},
@@ -25,7 +25,7 @@ const HistoryScreen = () => {
 
   return (
     <ImageBackground
-      source={require('../../assets/backGround.jpeg')}
+      source={require('../../../assets/backGround.jpeg')}
       style={styles.backgroundImage}>
       <View style={styles.container}>
         <Text style={styles.header}>Historial de Transacciones</Text>
@@ -39,4 +39,4 @@ const HistoryScreen = () => {
   );
 };
 
-export default HistoryScreen;
+export default HistoryPage;

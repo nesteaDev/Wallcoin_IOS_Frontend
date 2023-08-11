@@ -1,18 +1,22 @@
 import React from 'react';
-import {View, Text, ImageBackground, TouchableOpacity, Alert} from 'react-native';
+import {
+  View,
+  Text,
+  ImageBackground,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import Swiper from 'react-native-swiper';
-import styles from './authStyles';
+import styles from './AuthPageStyles';
 
 // import { StackScreenProps } from '@react-navigation/stack/lib/typescript/src/types';
 // import { useNavigation } from '@react-navigation/native';
-
 
 // interface Props extends StackScreenProps<any, any> {
 //   //navigation: StackNavigationProp<any, any>;
 //   //route: RouteProp<any, any>;
 // }
-const AuthComponent = () => {
-
+const AuthPage = () => {
   return (
     <ImageBackground
       source={require('../../assets/altBackgroundApp.jpeg')}
@@ -89,4 +93,4 @@ const AuthComponent = () => {
   );
 };
 
-export default AuthComponent;
+export default AuthPage;
