@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 type Transaction = {
   title: string;
@@ -30,6 +31,9 @@ const HistoryScreen = () => {
         renderItem={renderTransaction}
         keyExtractor={(item, index) => index.toString()}
       />
+      <Text>
+        <Icon name="logo-apple" size={80} color="black" />
+      </Text>
     </View>
   );
 };

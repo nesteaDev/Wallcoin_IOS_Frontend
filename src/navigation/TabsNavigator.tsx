@@ -4,7 +4,8 @@ import { Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HistoryScreen from '../screens/History/HistoryScreen';
 import ServiceScreen from '../screens/Services/ServiceScreen';
-import StackNavigator from '../navigation/StackNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
+import HomeStackNavigator from './HomeStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,14 +14,16 @@ export const TabsNavigator = (): ReactElement => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.4)',
         tabBarStyle: {
-          backgroundColor: '#125366',
-          height: '6%',
+          backgroundColor: '#D57329',
+
+          height: '6.5%',
           paddingBottom: 8,
           paddingTop: 8,
           marginBottom: 20,
           marginHorizontal: 15,
-          borderRadius: 40,
+          borderRadius: 60,
           shadowColor: '#000',
           shadowOffset: {
             width: 0,
@@ -28,29 +31,33 @@ export const TabsNavigator = (): ReactElement => {
           },
           shadowOpacity: 0.37,
           shadowRadius: 7.49,
-
           elevation: 12,
         },
         tabBarLabelStyle: {
-          fontSize: 10,
+          fontSize: 11,
+          marginTop: 1,
         },
         tabBarIcon: ({color}) => {
           let iconName: string = '';
           switch (route.name) {
             case 'Inicio':
-              iconName = 'I';
+              iconName = 'home-outline';
               break;
             case 'Servicios':
-              iconName = 'S';
+              iconName = 'cash-outline';
               break;
             case 'Transacciones':
-              iconName = 'H';
+              iconName = 'reader-outline';
               break;
             default:
-              iconName = 'home';
+              iconName = 'radio-button-off-outline';
               break;
           }
-          return <Text style={{color, fontSize: 21}}>{iconName}</Text>;
+          return (
+            <Text style={{color}}>
+              <Icon name={iconName} size={24} />
+            </Text>
+          );
         },
       })}>
       {/* <Tab.Screen
@@ -70,7 +77,7 @@ export const TabsNavigator = (): ReactElement => {
         }}
         component={HistoryScreen}
       />
-      <Tab.Screen name="Inicio" options={{}} component={StackNavigator} />
+      <Tab.Screen name="Inicio" options={{}} component={HomeStackNavigator} />
       <Tab.Screen name="Servicios" component={ServiceScreen} />
     </Tab.Navigator>
   );

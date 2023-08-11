@@ -24,7 +24,7 @@ const HomeComponent = () => {
 
   return (
     <ImageBackground
-      source={require('../../assets/backgroundApp.jpg')}
+      source={require('../../assets/altBackgroundApp.jpeg')}
       style={styles.backgroundImage}>
       <View style={styles.overlay}>
         <View style={styles.container}>
