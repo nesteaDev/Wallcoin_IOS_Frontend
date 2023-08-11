@@ -1,13 +1,20 @@
+import { StackScreenProps } from '@react-navigation/stack';
 import React, {useState} from 'react';
+import styles from './HomePageStyles';
 import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
   ImageBackground,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-const HomeScreen = () => {
+interface Props extends StackScreenProps<any, any> {
+  //navigation: StackNavigationProp<any, any>;
+  //route: RouteProp<any, any>;
+}
+
+const HomeScreen = ({navigation}: Props ) => {
   const [balance, setBalance] = useState(100.0);
 
   const handleReload = () => {
@@ -24,8 +31,31 @@ const HomeScreen = () => {
 
   return (
     <ImageBackground
-      source={require('../../assets/backgroundApp.jpg')}
+      source={require('../../assets/backGround.jpeg')}
       style={styles.backgroundImage}>
+      <View style={styles.headerButtons}>
+        <Text
+          style={styles.containerIcon}
+          onPress={() => navigation.navigate('ProfilePage', {
+            nombre: 'Nestea Quiroga',
+            numeroCuenta: 'Nestea_03924',
+            urlImagen: 'dsfgeradfgadsgdfgdfsg.jpg',
+          })}>
+          <Icon name="person" size={30} color="rgba(255, 255, 255, 0.8)" />
+        </Text>
+        <Text style={styles.containerIcon} onPress={() =>
+          navigation.navigate('NotificationPage', {
+            destino: 'Jose Perez',
+            fecha: '12/12/2021',
+            monto: '1000',
+          })}>
+          <Icon
+            name="notifications"
+            size={30}
+            color="rgba(255, 255, 255, 0.8)"
+          />
+        </Text>
+      </View>
       <View style={styles.overlay}>
         <View style={styles.container}>
           <Text style={styles.title}>Billetera Virtual</Text>
@@ -42,49 +72,5 @@ const HomeScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0)',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  container: {
-    width: '80%',
-    padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  balance: {
-    fontSize: 18,
-    marginBottom: 30,
-  },
-  button: {
-    backgroundColor: 'blue',
-    paddingVertical: 12,
-    paddingHorizontal: 25,
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-});
 
 export default HomeScreen;

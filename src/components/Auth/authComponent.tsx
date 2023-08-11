@@ -55,6 +55,12 @@ const AuthComponent = () => {
           </View>
         </Swiper>
         <View style={styles.container}>
+          <View style={styles.containerImg}>
+            <ImageBackground
+              source={require('../../assets/Saly-28.png')}
+              style={styles.imageLogin}
+            />
+          </View>
           <Text style={styles.title}>
             Bienvenido a <Text style={styles.titleStrong}>Wallcoin</Text>
           </Text>

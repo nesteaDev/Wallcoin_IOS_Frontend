@@ -14,15 +14,24 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
     padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.75)',
-    height: '35%',
+    backgroundColor: 'rgba(255, 255, 255, 0.85)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
+
+    elevation: 17,
+    height: '34%',
   },
   title: {
-    marginTop: '5%',
-    fontSize: 24,
+    marginTop: '6%',
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#125366',
-    marginBottom: 10,
+    marginBottom: 12,
     textAlign: 'center',
   },
   titleStrong: {
@@ -54,7 +63,7 @@ const styles = StyleSheet.create({
   },
   swiperContainer: {
     position: 'absolute',
-    bottom: '15%',
+    bottom: '17%',
     height: '50%',
     zIndex: 1,
   },
@@ -82,6 +91,19 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontWeight: '700',
     textDecorationLine: 'underline',
+  },
+  containerImg: {
+    position: 'absolute',
+    right: '2%',
+    top: '-13%',
+    width: '30%',
+    height: '34%',
+    borderRadius: 10,
+  },
+  imageLogin: {
+    flex: 1,
+    resizeMode: 'cover',
+    zIndex: 1000,
   },
 });
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList, ImageBackground} from 'react-native';
+import styles from './HistoryScreenStyles';
 
 type Transaction = {
   title: string;
@@ -23,48 +24,19 @@ const HistoryScreen = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Historial de Transacciones</Text>
-      <FlatList
-        data={transactions}
-        renderItem={renderTransaction}
-        keyExtractor={(item, index) => index.toString()}
-      />
-    </View>
+    <ImageBackground
+      source={require('../../assets/backGround.jpeg')}
+      style={styles.backgroundImage}>
+      <View style={styles.container}>
+        <Text style={styles.header}>Historial de Transacciones</Text>
+        <FlatList
+          data={transactions}
+          renderItem={renderTransaction}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
+    </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: 'white',
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  transactionItem: {
-    backgroundColor: '#f0f0f0',
-    padding: 10,
-    marginBottom: 10,
-    borderRadius: 5,
-  },
-  transactionTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  transactionAmount: {
-    fontSize: 18,
-    color: '#3498db',
-    marginTop: 5,
-  },
-  transactionDate: {
-    fontSize: 12,
-    color: '#999',
-    marginTop: 5,
-  },
-});
 
 export default HistoryScreen;
