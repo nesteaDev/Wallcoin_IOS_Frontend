@@ -3,23 +3,21 @@ import React from 'react';
 import HomePage from '../components/pages/Home/HomePage';
 import NotificationPage from '../components/pages/Notifications/NotificationPage';
 import ProfilePage from '../components/pages/Profile/ProfilePage';
+import { PersonInterface } from '../models/PersonInterface';
+import AuthPage from '../components/pages/Auth/AuthPage';
+import { NotificationInterface } from '../models/NotificationInterface';
 
-interface PersonaInterface {
-  nombre: string;
-  numeroCuenta: string;
-  urlImagen: string;
-}
-
-interface NotificacionInterface {
-  destino: string;
-  fecha: string;
-  monto: string;
-}
+// interface PersonaInterface {
+//   nombre: string;
+//   numeroCuenta: string;
+//   urlImagen: string;
+// }
 
 export type RootStackParams = {
   HomePage: undefined;
-  ProfilePage: PersonaInterface;
-  NotificationPage: NotificacionInterface;
+  ProfilePage: PersonInterface;
+  NotificationPage: NotificationInterface[];
+  AuthPage: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -52,6 +50,11 @@ export const HomeStackNavigator = () => {
         name="NotificationPage"
         options={{title: 'Notificaciones'}}
         component={NotificationPage}
+      />
+      <Stack.Screen
+        name="AuthPage"
+        options={{headerShown: false, headerTransparent: true, }}
+        component={AuthPage}
       />
     </Stack.Navigator>
   );

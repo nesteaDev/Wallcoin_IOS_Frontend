@@ -62,11 +62,6 @@ export const StackNavigator = () => {
         options={{title: 'Notificaciones'}}
         component={PageScreen04}
       />
-      {/* <Stack.Screen
-        name="AuthPage"
-        options={{headerShown: false, headerTransparent: true}}
-        component={AuthPage}
-      /> */}
     </Stack.Navigator>
   );
 };

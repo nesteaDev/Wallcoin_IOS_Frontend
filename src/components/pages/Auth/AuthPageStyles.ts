@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
     padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.85)',
+    backgroundColor: 'rgba(255, 255, 255, 0.76)',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -24,18 +24,18 @@ const styles = StyleSheet.create({
     shadowRadius: 11.14,
 
     elevation: 17,
-    height: '34%',
+    height: '33%',
   },
   title: {
     marginTop: '6%',
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#125366',
+    color: 'rgba(63, 9, 67,1)',
     marginBottom: 12,
     textAlign: 'center',
   },
   titleStrong: {
-    color: '#D57329',
+    color: 'rgba(212, 112, 16,1)',
   },
   description: {
     fontSize: 16,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#D57329',
+    backgroundColor: 'rgba(63, 9, 67,1)',
     paddingVertical: 12,
     paddingHorizontal: 25,
     borderRadius: 45,
@@ -64,12 +64,13 @@ const styles = StyleSheet.create({
   swiperContainer: {
     position: 'absolute',
     bottom: '17%',
-    height: '50%',
+    height: '53%',
+    left: -13,
     zIndex: 1,
   },
   slideImage: {
     marginLeft: '17%',
-    width: '70%',
+    width: '74%',
     height: '55%',
     borderRadius: 10,
   },
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
   },
   descriptionFooterStrong: {
     fontSize: 16,
-    color: '#125366',
+    color: 'rgba(63, 9, 67,1)',
     textAlign: 'center',
     marginTop: 20,
     fontWeight: '700',
@@ -94,10 +95,10 @@ const styles = StyleSheet.create({
   },
   containerImg: {
     position: 'absolute',
-    right: '2%',
-    top: '-13%',
-    width: '30%',
-    height: '34%',
+    right: 0,
+    top: '-7%',
+    width: '26%',
+    height: '33%',
     borderRadius: 10,
   },
   imageLogin: {

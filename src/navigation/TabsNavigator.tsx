@@ -6,8 +6,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import HistoryPage from '../components/pages/History/HistoryPage';
 import ServicePage from '../components/pages/Services/ServicePage';
 import HomeStackNavigator from './HomeStackNavigator';
+import { PersonInterface } from '../models/PersonInterface';
+import {PersonData, TransactionData} from '../data/data';
+import { TransactionInterface } from '../models/TransactionInterface';
 
 const Tab = createBottomTabNavigator();
+
+const dataUser: PersonInterface = PersonData;
+const dataTransaction: TransactionInterface[] = TransactionData;
+
 
 export const TabsNavigator = (): ReactElement => {
   return (
@@ -15,13 +22,14 @@ export const TabsNavigator = (): ReactElement => {
       screenOptions={({route}) => ({
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.4)',
+        headerTransparent: true,
+        headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#3498db',
-
+          backgroundColor: 'rgba(63, 9, 67,1)',
+          transform: [{translateY: -15}],
           height: '6.5%',
           paddingBottom: 8,
           paddingTop: 8,
-          marginBottom: 20,
           marginHorizontal: 15,
           borderRadius: 60,
           shadowColor: '#000',
@@ -75,10 +83,18 @@ export const TabsNavigator = (): ReactElement => {
         options={{
           title: 'Historial',
         }}
+        initialParams={[...dataTransaction]}
         component={HistoryPage}
       />
       <Tab.Screen name="Inicio" options={{}} component={HomeStackNavigator} />
-      <Tab.Screen name="Servicios" component={ServicePage} />
+
+      <Tab.Screen
+        name="Servicios"
+        options={{}}
+        // Pasa los datos a través de initialParams
+        initialParams={{...dataUser}}
+        component={ServicePage}
+      />
     </Tab.Navigator>
   );
 };
