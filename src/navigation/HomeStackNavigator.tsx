@@ -53,7 +53,7 @@ export const HomeStackNavigator = () => {
       />
       <Stack.Screen
         name="AuthPage"
-        options={{headerShown: false, headerTransparent: true, }}
+        options={{headerShown: false, headerTransparent: true }}
         component={AuthPage}
       />
     </Stack.Navigator>
