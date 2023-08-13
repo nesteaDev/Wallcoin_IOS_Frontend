@@ -1,57 +1,36 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  backgroundImage: {
+  container: {
     flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
+    padding: '3%',
+  },
+  safeArea: {
+    width: '100%',
     alignItems: 'center',
+    height: '100%',
   },
   headerButtons: {
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '100%',
-    padding: '4%',
+    padding: 9,
+    borderRadius: 40,
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
-  containerIcon: {
-    backgroundColor: 'black',
-    padding: 3,
+  iconStyle: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: 50,
+    padding: 5,
   },
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0)',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+  iconRightStyle: {
+    marginLeft: 5,
   },
-  container: {
-    width: '80%',
-    padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
+  headerRightButtons: {
+    flexDirection: 'row',
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  balance: {
-    fontSize: 18,
-    marginBottom: 30,
-  },
-  button: {
-    backgroundColor: 'blue',
-    paddingVertical: 12,
-    paddingHorizontal: 25,
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
+  textCardName: {
+    color: 'red',
   },
 });
 

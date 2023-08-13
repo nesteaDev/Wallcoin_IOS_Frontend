@@ -1,13 +1,19 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
   container: {
     flex: 1,
-    padding: 20,
+    resizeMode: 'cover',
+    padding: '3%',
+  },
+  safeArea: {
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+  },
+  containerList: {
+    width: '100%',
+    paddingHorizontal: '6%',
   },
   header: {
     fontSize: 24,
@@ -23,6 +29,9 @@ const styles = StyleSheet.create({
   transactionTitle: {
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  transactionSubtitle:{
+    fontSize: 13,
   },
   transactionAmount: {
     fontSize: 18,
