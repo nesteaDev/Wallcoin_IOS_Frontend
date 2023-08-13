@@ -1,37 +1,42 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import React, {useEffect} from 'react';
-import {ImageBackground, Text, View} from 'react-native';
+import React from 'react';
+import {ImageBackground, StyleSheet} from 'react-native';
 import {RootStackParams} from '../../../navigation/HomeStackNavigator';
-import styles from './ProfilePageStyles';
+import InfoCardOrganism from '../../organisms/InfoCardOrganism/InfoCardOrganism';
 
-// type RouterParams = {
-//   nombre: string;
-//   numeroCuenta: string;
-//   urlImagen: string;
-// };
 
 interface Props extends StackScreenProps<RootStackParams, 'ProfilePage'> {}
-function ProfilePage({navigation, route}: Props) {
-  const {nombre, numeroCuenta, urlImagen} = route.params;
+function ProfilePage({navigation,route}: Props) {
 
-  useEffect(() => {
-    navigation.setOptions({
-      title: route.params?.nombre,
-    });
-  }, [navigation, route.params?.nombre]);
+  console.log(navigation);
+
+  const {...data} = route.params;
+
+  //Cambiar el titulo de la Pagina
+  // useEffect(() => {
+  //   navigation.setOptions({
+  //     title: data.name,
+  //   });
+  // }, [navigation, data.name]);
 
   return (
     <ImageBackground
-      source={require('../../../assets/backGround.jpeg')}
-      style={styles.backgroundImage}>
-      <View>
-        <Text>Tu Perfil:</Text>
-        <Text>{nombre}</Text>
-        <Text>{numeroCuenta}</Text>
-        <Text>{urlImagen}</Text>
-      </View>
+      source={require('../../../assets/g5.jpeg')}
+      style={styles.container}>
+      <InfoCardOrganism  data= {data} profile={true} />
     </ImageBackground>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: '20%',
+    alignItems: 'center',
+  },
+});
+
+
 export default ProfilePage;
+
+

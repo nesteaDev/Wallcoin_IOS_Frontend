@@ -1,52 +1,35 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Alert,
-  ImageBackground,
-} from 'react-native';
+import { ImageBackground } from 'react-native';
+import InfoCardOrganism from '../../organisms/InfoCardOrganism/InfoCardOrganism';
+import { PersonInterface } from '../../../models/PersonInterface';
+import TitleMolecule from '../../molecules/TitleMolecule';
 import styles from './ServicesPageStyles';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
-type Service = {
-  title: string;
-};
+interface Props {
+  navigation: any;
+  route: any;
+}
 
-const ServicePage = () => {
-  const services: Service[] = [
-    {title: 'Enviar Dinero'},
-    {title: 'Pagar Facturas'},
-    {title: 'Recargar Cuenta'},
-  ];
+const ServicePage = ({navigation, route}: Props) => {
 
-  const handleServicePress = (service: {title: string}) => {
-    Alert.alert('Servicio Seleccionado', `Has seleccionado: ${service.title}`);
-  };
+  console.log(navigation);
 
-  const renderService = ({item}: {item: Service}) => (
-    <TouchableOpacity
-      style={styles.serviceItem}
-      onPress={() => handleServicePress(item)}>
-      <Text style={styles.serviceTitle}>{item.title}</Text>
-    </TouchableOpacity>
-  );
+  const {...data} = route.params as PersonInterface;
 
   return (
     <ImageBackground
-      source={require('../../../assets/backGround.jpeg')}
-      style={styles.backgroundImage}>
-      <View style={styles.container}>
-        <Text style={styles.header}>Servicios de Billetera Virtual</Text>
-        <FlatList
-          data={services}
-          renderItem={renderService}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
+      source={require('../../../assets/g5.jpeg')}
+      style={styles.container}>
+      <SafeAreaView style={styles.safeArea}>
+        <TitleMolecule>Tus Servicios</TitleMolecule>
+
+        <InfoCardOrganism data={data} profile={false} />
+      </SafeAreaView>
     </ImageBackground>
   );
 };
+
 
 export default ServicePage;

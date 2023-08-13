@@ -1,81 +1,65 @@
-import { StackScreenProps } from '@react-navigation/stack';
-import React, {useState} from 'react';
-import styles from './HomePageStyles';
+import React from 'react';
+import {StackScreenProps} from '@react-navigation/stack';
 import {
-  View,
-  Text,
-  TouchableOpacity,
+  Alert,
   ImageBackground,
+  View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import {PersonInterface} from '../../../models/PersonInterface';
+import IconMolecule from '../../molecules/IconMolecule';
+import {PersonData, NotificationData} from '../../../data/data';
+import styles from './HomePageStyles';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { NotificationInterface } from '../../../models/NotificationInterface';
 
-interface Props extends StackScreenProps<any, any> {
-  //navigation: StackNavigationProp<any, any>;
-  //route: RouteProp<any, any>;
-}
 
-const HomePage = ({navigation}: Props ) => {
-  const [balance, setBalance] = useState(100.0);
+interface Props extends StackScreenProps<any, any> {}
 
-  const handleReload = () => {
-    setBalance(balance + 50);
-  };
+const dataUser: PersonInterface = PersonData;
+const dataNotification: NotificationInterface[] = NotificationData;
 
-  const handlePayment = () => {
-    if (balance >= 20) {
-      setBalance(balance - 20);
-    } else {
-      console.log('Saldo insuficiente para realizar el pago.');
-    }
-  };
+const HomePage = ({navigation}: Props) => {
+  console.log(navigation);
 
   return (
     <ImageBackground
-      source={require('../../../assets/backGround.jpeg')}
-      style={styles.backgroundImage}>
-      <View style={styles.headerButtons}>
-        <Text
-          style={styles.containerIcon}
-          onPress={() =>
-            navigation.navigate('ProfilePage', {
-              nombre: 'Nestea Quiroga',
-              numeroCuenta: 'Nestea_03924',
-              urlImagen: 'dsfgeradfgadsgdfgdfsg.jpg',
-            })
-          }>
-          <Icon name="person" size={30} color="rgba(255, 255, 255, 0.8)" />
-        </Text>
-        <Text
-          style={styles.containerIcon}
-          onPress={() =>
-            navigation.navigate('NotificationPage', {
-              destino: 'Jose Perez',
-              fecha: '12/12/2021',
-              monto: '1000',
-            })
-          }>
-          <Icon
-            name="notifications"
-            size={30}
-            color="rgba(255, 255, 255, 0.8)"
+      source={require('../../../assets/g5.jpeg')}
+      style={styles.container}>
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.headerButtons}>
+          <IconMolecule
+            containerIconStyles={styles.iconStyle}
+            iconName="person-outline"
+            iconSize={26}
+            iconColor="rgba(255, 255, 255, 0.9)"
+            onPress={() => navigation.navigate('ProfilePage', {...dataUser})}
+            activeOpacity={0.6}
+            button={true}
           />
-        </Text>
-      </View>
-      <View style={styles.overlay}>
-        <View style={styles.container}>
-          <Text style={styles.title}>Billetera Virtual</Text>
-          <Text style={styles.balance}>Saldo: ${balance.toFixed(2)}</Text>
-          <TouchableOpacity style={styles.button} onPress={handleReload}>
-            <Text style={styles.buttonText}>Recargar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handlePayment}>
-            <Text style={styles.buttonText}>Realizar Pago</Text>
-          </TouchableOpacity>
+          <View style={styles.headerRightButtons}>
+            <IconMolecule
+              containerIconStyles={styles.iconStyle}
+              iconName="notifications-outline"
+              iconSize={26}
+              iconColor="rgba(255, 255, 255, 0.9)"
+              onPress={() => navigation.navigate('NotificationPage', [...dataNotification])}
+              activeOpacity={0.6}
+              button={true}
+            />
+            <IconMolecule
+              containerIconStyles={[styles.iconStyle, styles.iconRightStyle]}
+              iconName="power-outline"
+              iconSize={26}
+              iconColor="rgba(255, 255, 255, 0.9)"
+              onPress={() => {Alert.alert('Cerrar Sesión', '¿Estás seguro de cerrar sesión?', [ {text: 'Cancelar', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}, {text: 'Aceptar', onPress: () => navigation.navigate('AuthPage')} ], {cancelable: false}, );}}
+              activeOpacity={0.6}
+              button={true}
+            />
+          </View>
         </View>
-      </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 };
-
 
 export default HomePage;

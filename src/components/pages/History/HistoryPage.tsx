@@ -1,42 +1,89 @@
 import React from 'react';
-import {View, Text, FlatList, ImageBackground} from 'react-native';
+import {View, ImageBackground, FlatList, Text} from 'react-native';
 import styles from './HistoryPageStyles';
+import TitleMolecule from '../../molecules/TitleMolecule';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { TransactionInterface} from '../../../models/TransactionInterface';
 
-type Transaction = {
-  title: string;
-  amount: string;
-  date: string;
-};
 
-const HistoryPage = () => {
-  const transactions: Transaction[] = [
-    {title: 'Compra en tienda', amount: '$50.00', date: '10 de agosto de 2023'},
-    {title: 'Recarga de saldo', amount: '$30.00', date: '8 de agosto de 2023'},
-    {title: 'Pago de factura', amount: '$75.00', date: '5 de agosto de 2023'},
-  ];
+interface Props {
+  navigation: any;
+  route: any;
+}
 
-  const renderTransaction = ({item}: {item: Transaction}) => (
+const HistoryPage = ({route}: Props) => {
+  const data = route.params;
+
+  const convertedList: TransactionInterface[] = Object.keys(data).map(
+    key => data[parseInt(key, 10)],
+  );
+
+
+
+  const validationTypeTransaction = (item: TransactionInterface) => {
+    switch (item.type) {
+      case 'recharge':
+        return (
+          <>
+            <Text style={styles.transactionSubtitle}>Recarga de:</Text>
+            <Text style={[styles.transactionAmount, {color: 'green'}]}>$ {item.amount}</Text>
+          </>
+        );
+      case 'received':
+        return (
+          <>
+            <Text style={styles.transactionSubtitle}>De:</Text>
+            <Text style={[styles.transactionAmount, {color: 'green'}]}>
+              $ {item.amount}
+            </Text>
+          </>
+        );
+      case 'payment':
+        return (
+          <>
+            <Text style={styles.transactionSubtitle}>Para:</Text>
+            <Text style={[styles.transactionAmount, {color: 'red'}]}>
+              $ {item.amount}
+            </Text>
+          </>
+        );
+      default:
+        return (
+        <>
+          <Text style={styles.transactionSubtitle}>Movimiento:</Text>
+          <Text style={[styles.transactionAmount, {color: 'orange'}]}>
+            $ {item.amount}
+          </Text>
+        </>
+      );
+    }
+  };
+
+  const renderTransaction = ({item}: {item: TransactionInterface}) => (
     <View style={styles.transactionItem}>
-      <Text style={styles.transactionTitle}>{item.title}</Text>
-      <Text style={styles.transactionAmount}>{item.amount}</Text>
+      <Text style={styles.transactionTitle}>{item.origin.name}</Text>
+      {validationTypeTransaction(item)}
       <Text style={styles.transactionDate}>{item.date}</Text>
     </View>
   );
 
   return (
     <ImageBackground
-      source={require('../../../assets/backGround.jpeg')}
-      style={styles.backgroundImage}>
-      <View style={styles.container}>
-        <Text style={styles.header}>Historial de Transacciones</Text>
-        <FlatList
-          data={transactions}
-          renderItem={renderTransaction}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
+      source={require('../../../assets/g5.jpeg')}
+      style={styles.container}>
+      <SafeAreaView style={styles.safeArea}>
+        <TitleMolecule>Tu Historial</TitleMolecule>
+        <View style={styles.containerList}>
+          <FlatList
+            data={convertedList}
+            renderItem={renderTransaction}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 };
+
 
 export default HistoryPage;
