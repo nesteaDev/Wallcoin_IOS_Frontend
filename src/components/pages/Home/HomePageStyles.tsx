@@ -3,7 +3,8 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: '3%',
+    paddingTop: '3%',
+    paddingHorizontal: '3%',
   },
   safeArea: {
     width: '100%',
@@ -31,6 +32,33 @@ const styles = StyleSheet.create({
   },
   textCardName: {
     color: 'red',
+  },
+  mainSection: {
+    marginTop: '45%',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    height: '80%',
+    width: '100%',
+    borderRadius: 40,
+    overflow: 'visible',
+  },
+  swiperContainer: {
+    overflow: 'visible',
+    height: '50%',
+    bottom: 0,
+    zIndex: 10000,
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+  },
+  slideImage: {
+    overflow: 'visible',
+    width: '20%',
+    height: '30%',
+    borderRadius: 10,
+  },
+  imageBackground: {
+    overflow: 'visible',
+    flex: 1,
+    resizeMode: 'cover',
+    zIndex: 1,
   },
 });
 
