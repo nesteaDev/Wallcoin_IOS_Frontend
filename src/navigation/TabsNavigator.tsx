@@ -21,12 +21,15 @@ export const TabsNavigator = (): ReactElement => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarActiveTintColor: 'white',
-        tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.4)',
+        tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.5)',
         headerTransparent: true,
         headerShown: false,
         tabBarStyle: {
-          // backgroundColor: 'rgba(63, 9, 67,1)',
-          backgroundColor: 'black',
+          backgroundColor: 'rgba(53, 3, 47, 1)',
+          borderTopColor: 'transparent',
+          height: '7.5%',
+          paddingBottom: '5%',
+          // backgroundColor: 'black',
           // transform: [{translateY: -15}],
           // height: '6.5%',
           // paddingBottom: 8,
@@ -45,7 +48,7 @@ export const TabsNavigator = (): ReactElement => {
         },
         tabBarLabelStyle: {
           fontSize: 11,
-          marginTop: 1,
+          // marginTop: 1,
         },
         tabBarIcon: ({color}) => {
           let iconName: string = '';

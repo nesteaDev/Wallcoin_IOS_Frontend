@@ -23,7 +23,7 @@ function NotificationPage({route}: Props) {
 
   return (
     <ImageBackground
-      source={require('../../../assets/g6.png')}
+      source={require('../../../assets/g5.jpeg')}
       style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <TitleMolecule>Tu Historial</TitleMolecule>

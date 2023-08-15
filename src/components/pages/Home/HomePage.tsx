@@ -77,45 +77,7 @@ const HomePage = ({navigation}: Props) => {
             />
           </View>
         </View>
-        <View style={styles.mainSection}>
-          {/* <Swiper
-          style={styles.swiperContainer}
-          activeDot={false}
-          dotColor="transparent"
-          activeDotColor="transparent"
-          autoplay={true}>
-          <View style={styles.slideImage}>
-            <ImageBackground
-              source={require('../../../assets/slider/Saly-11.png')}
-              style={styles.imageBackground}
-            />
-          </View>
-          <View style={styles.slideImage}>
-            <ImageBackground
-              source={require('../../../assets/slider/Saly-45.png')}
-              style={styles.imageBackground}
-            />
-          </View>
-          <View style={styles.slideImage}>
-            <ImageBackground
-              source={require('../../../assets/slider/Saly-12.png')}
-              style={styles.imageBackground}
-            />
-          </View>
-          <View style={styles.slideImage}>
-            <ImageBackground
-              source={require('../../../assets/slider/Saly-31.png')}
-              style={styles.imageBackground}
-            />
-          </View>
-          <View style={styles.slideImage}>
-            <ImageBackground
-              source={require('../../../assets/slider/Saly-44.png')}
-              style={styles.imageBackground}
-            />
-          </View>
-        </Swiper> */}
-        </View>
+        <View style={styles.mainSection} />
       </SafeAreaView>
     </ImageBackground>
   );
