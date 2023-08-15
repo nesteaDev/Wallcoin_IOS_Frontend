@@ -23,7 +23,7 @@ function ProfilePage({navigation,route}: Props) {
     <ImageBackground
       source={require('../../../assets/g5.jpeg')}
       style={styles.container}>
-      <InfoCardOrganism  data= {data} profile={true} />
+      <InfoCardOrganism data={data} profile={true} />
     </ImageBackground>
   );
 }

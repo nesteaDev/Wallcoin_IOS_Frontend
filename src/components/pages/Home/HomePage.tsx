@@ -11,6 +11,7 @@ import {PersonData, NotificationData} from '../../../data/data';
 import styles from './HomePageStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NotificationInterface } from '../../../models/NotificationInterface';
+// import Swiper from 'react-native-swiper';
 
 
 interface Props extends StackScreenProps<any, any> {}
@@ -42,7 +43,9 @@ const HomePage = ({navigation}: Props) => {
               iconName="notifications-outline"
               iconSize={26}
               iconColor="rgba(255, 255, 255, 0.9)"
-              onPress={() => navigation.navigate('NotificationPage', [...dataNotification])}
+              onPress={() =>
+                navigation.navigate('NotificationPage', [...dataNotification])
+              }
               activeOpacity={0.6}
               button={true}
             />
@@ -51,12 +54,30 @@ const HomePage = ({navigation}: Props) => {
               iconName="power-outline"
               iconSize={26}
               iconColor="rgba(255, 255, 255, 0.9)"
-              onPress={() => {Alert.alert('Cerrar Sesión', '¿Estás seguro de cerrar sesión?', [ {text: 'Cancelar', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}, {text: 'Aceptar', onPress: () => navigation.navigate('AuthPage')} ], {cancelable: false}, );}}
+              onPress={() => {
+                Alert.alert(
+                  'Cerrar Sesión',
+                  '¿Estás seguro de cerrar sesión?',
+                  [
+                    {
+                      text: 'Cancelar',
+                      onPress: () => console.log('Cancel Pressed'),
+                      style: 'cancel',
+                    },
+                    {
+                      text: 'Aceptar',
+                      onPress: () => navigation.navigate('AuthPage'),
+                    },
+                  ],
+                  {cancelable: false},
+                );
+              }}
               activeOpacity={0.6}
               button={true}
             />
           </View>
         </View>
+        <View style={styles.mainSection} />
       </SafeAreaView>
     </ImageBackground>
   );
