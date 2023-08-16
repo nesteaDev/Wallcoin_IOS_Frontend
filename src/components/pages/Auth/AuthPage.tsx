@@ -1,23 +1,31 @@
 import React from 'react';
+import {useAuth0} from 'react-native-auth0';
 import {
   View,
   Text,
   ImageBackground,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import styles from './AuthPageStyles';
+import { StackScreenProps } from '@react-navigation/stack';
 
-// import { StackScreenProps } from '@react-navigation/stack/lib/typescript/src/types';
-// import { useNavigation } from '@react-navigation/native';
 
-// interface Props extends StackScreenProps<any, any> {
-//   //navigation: StackNavigationProp<any, any>;
-//   //route: RouteProp<any, any>;
-// }
-const AuthPage = () => {
 
+interface Props extends StackScreenProps<any, any> {}
+const AuthPage = ({navigation}: Props) => {
+
+  const {authorize} = useAuth0();
+
+  const onPress = async () => {
+    try {
+      await authorize().finally(() => {
+      navigation.navigate('TabsNavigator');
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <ImageBackground
@@ -74,18 +82,14 @@ const AuthPage = () => {
             Únete a la revolución digital y empieza a tomar el control de tu
             dinero.
           </Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => Alert.alert('Go to Home')}>
-            <Text style={styles.buttonText}>Regístrate</Text>
+          <TouchableOpacity style={styles.button} onPress={onPress}>
+            <Text style={styles.buttonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
           <View>
             <Text style={styles.descriptionFooter}>
-              ¿Ya tienes una cuenta?{' '}
-              <Text
-                style={styles.descriptionFooterStrong}
-                onPress={() => Alert.alert('Go to Home')}>
-                Iniciar sesión
+              ¿Aun no tienes una cuenta?{' '}
+              <Text style={styles.descriptionFooterStrong} onPress={onPress}>
+                Regístrate
               </Text>
             </Text>
           </View>

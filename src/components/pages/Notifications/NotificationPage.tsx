@@ -26,7 +26,7 @@ function NotificationPage({route}: Props) {
       source={require('../../../assets/g5.jpeg')}
       style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <TitleMolecule>Tu Historial</TitleMolecule>
+        <TitleMolecule>Tus Notificaciones</TitleMolecule>
         <View style={styles.containerList}>
           <FlatList
             data={data}

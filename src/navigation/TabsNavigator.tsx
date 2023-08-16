@@ -5,10 +5,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import HistoryPage from '../components/pages/History/HistoryPage';
 import ServicePage from '../components/pages/Services/ServicePage';
-import HomeStackNavigator from './HomeStackNavigator';
 import { PersonInterface } from '../models/PersonInterface';
 import {PersonData, TransactionData} from '../data/data';
 import { TransactionInterface } from '../models/TransactionInterface';
+import HomeStackNavigator from './HomeStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +19,7 @@ const dataTransaction: TransactionInterface[] = TransactionData;
 export const TabsNavigator = (): ReactElement => {
   return (
     <Tab.Navigator
+      initialRouteName="HomeStackNavigator"
       screenOptions={({route}) => ({
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.5)',
@@ -73,16 +74,13 @@ export const TabsNavigator = (): ReactElement => {
           );
         },
       })}>
-      {/* <Tab.Screen
-        name="Transacciones"
-        options={{
-          title: 'Historial',
-          tabBarIcon(props) {
-            return <Text style={{color: props.color}}>T1</Text>;
-          },
-        }}
-        component={HistoryPage}
-      /> */}
+      <Tab.Screen name="Inicio" options={{}} component={HomeStackNavigator} />
+      <Tab.Screen
+        name="Servicios"
+        options={{}}
+        initialParams={{...dataUser}}
+        component={ServicePage}
+      />
       <Tab.Screen
         name="Transacciones"
         options={{
@@ -90,15 +88,6 @@ export const TabsNavigator = (): ReactElement => {
         }}
         initialParams={[...dataTransaction]}
         component={HistoryPage}
-      />
-      <Tab.Screen name="Inicio" options={{}} component={HomeStackNavigator} />
-
-      <Tab.Screen
-        name="Servicios"
-        options={{}}
-        // Pasa los datos a través de initialParams
-        initialParams={{...dataUser}}
-        component={ServicePage}
       />
     </Tab.Navigator>
   );

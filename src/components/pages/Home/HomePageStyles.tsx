@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
     color: 'red',
   },
   mainSection: {
-    marginTop: '45%',
-    backgroundColor: 'rgba(255, 255, 255, 0.75)',
-    height: '80%',
+    marginTop: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    height: '14%',
     width: '100%',
-    borderRadius: 40,
+    borderRadius: 20,
     overflow: 'visible',
   },
   swiperContainer: {

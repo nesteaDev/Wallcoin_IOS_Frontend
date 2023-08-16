@@ -1,5 +1,6 @@
 import React from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
+import {useAuth0} from 'react-native-auth0';
 import {
   Alert,
   ImageBackground,
@@ -21,6 +22,17 @@ const dataNotification: NotificationInterface[] = NotificationData;
 
 const HomePage = ({navigation}: Props) => {
   console.log(navigation);
+
+  const {clearSession} = useAuth0();
+
+  const logout = async () => {
+    try {
+      await clearSession();
+      console.log('logout');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <ImageBackground
@@ -66,7 +78,10 @@ const HomePage = ({navigation}: Props) => {
                     },
                     {
                       text: 'Aceptar',
-                      onPress: () => navigation.navigate('AuthPage'),
+                      onPress: () => {
+                        logout;
+                        navigation.navigate('AuthPage');
+                      },
                     },
                   ],
                   {cancelable: false},
