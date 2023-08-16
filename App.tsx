@@ -11,7 +11,7 @@ function App(): ReactElement {
         domain={'dev-jitjgfu48u7z2mxv.us.auth0.com'}
         clientId={'ahDQI2KNfKDZl9Ujl1L2zTFaepGF1DwQ'}>
         <NavigationContainer>
-          <AuthStackNavigator />
+            <AuthStackNavigator />
         </NavigationContainer>
       </Auth0Provider>
     </>

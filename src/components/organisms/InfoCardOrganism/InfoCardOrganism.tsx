@@ -33,7 +33,7 @@ const InfoCardOrganism = (props: InfoCardOrganismProps) => {
 
   const url = data?.urlImage
     ? {uri: data.urlImage}
-    : require('../../../assets/profile.jpeg');
+    : require('../../../assets/ilustrations/profile.jpeg');
 
   return (
     <ContainerAtom style={[styles.container, styleSectionTop]}>
@@ -42,7 +42,7 @@ const InfoCardOrganism = (props: InfoCardOrganismProps) => {
       ) : (
         <Image
           style={styles.logo}
-          source={require('../../../assets/Saly-28.png')}
+          source={require('../../../assets/ilustrations/Saly-28.png')}
         />
       )}
       <View style={styles.containerTextAccount}>

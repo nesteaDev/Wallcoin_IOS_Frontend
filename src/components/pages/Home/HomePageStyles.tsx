@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: '3%',
-    paddingHorizontal: '3%',
   },
   safeArea: {
     width: '100%',
@@ -33,32 +32,36 @@ const styles = StyleSheet.create({
   textCardName: {
     color: 'red',
   },
-  mainSection: {
-    marginTop: '100%',
+  containerLoader: {
+    marginTop: '3%',
+    // backgroundColor: 'rgba(0, 0, 0, 0.45)',
     backgroundColor: 'rgba(255, 255, 255, 0.6)',
-    height: '14%',
+    height: '13%',
     width: '100%',
-    borderRadius: 20,
-    overflow: 'visible',
+    borderRadius: 9,
   },
-  swiperContainer: {
-    overflow: 'visible',
-    height: '50%',
-    bottom: 0,
-    zIndex: 10000,
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+  containerCircle: {
+    marginTop: '13%',
+    height: 230,
+    width: 230,
+    // backgroundColor: 'rgba(188, 130, 56, 1)',
+    marginBottom: '10%',
   },
-  slideImage: {
-    overflow: 'visible',
-    width: '20%',
-    height: '30%',
+  mainSection: {
+    marginTop: '5%',
+    height: '26%',
+    width: '98.3%',
     borderRadius: 10,
   },
-  imageBackground: {
-    overflow: 'visible',
-    flex: 1,
-    resizeMode: 'cover',
-    zIndex: 1,
+  containerImage: {
+    width: '60%',
+    height: '40%',
+    transform: [{translateX: -75}, {translateY: -49}],
+  },
+  logo: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
   },
 });
 

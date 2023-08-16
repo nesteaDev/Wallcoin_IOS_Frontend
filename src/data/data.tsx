@@ -9,7 +9,7 @@ export const PersonData: PersonInterface = {
   account: {
     id: 1,
     accountNumber: '3102095353',
-    balance: 100000000.0,
+    balance: 845000.0,
     accountType: 'Ahorros',
     accountStatus: 'Activa',
     dateCreated: '2021-05-01',

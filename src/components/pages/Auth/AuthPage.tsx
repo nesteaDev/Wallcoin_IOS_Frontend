@@ -18,9 +18,10 @@ const AuthPage = ({navigation}: Props) => {
   const {authorize} = useAuth0();
 
   const onPress = async () => {
+    // TODO: Implementar validación al cancelar el login
     try {
       await authorize().finally(() => {
-      navigation.navigate('TabsNavigator');
+        navigation.navigate('TabsNavigator');
       });
     } catch (e) {
       console.log(e);
@@ -71,7 +72,7 @@ const AuthPage = ({navigation}: Props) => {
         <View style={styles.container}>
           <View style={styles.containerImg}>
             <ImageBackground
-              source={require('../../../assets/Saly-28.png')}
+              source={require('../../../assets/ilustrations/Saly-28.png')}
               style={styles.imageLogin}
             />
           </View>

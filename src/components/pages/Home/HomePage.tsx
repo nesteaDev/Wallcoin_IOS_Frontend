@@ -3,6 +3,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {useAuth0} from 'react-native-auth0';
 import {
   Alert,
+  Image,
   ImageBackground,
   View,
 } from 'react-native';
@@ -12,7 +13,10 @@ import {PersonData, NotificationData} from '../../../data/data';
 import styles from './HomePageStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NotificationInterface } from '../../../models/NotificationInterface';
-// import Swiper from 'react-native-swiper';
+import CircleMolecule from '../../molecules/CircleMolecule';
+import ServiceCarousel from '../../services/Carousel/ServiceCarousel';
+
+
 
 
 interface Props extends StackScreenProps<any, any> {}
@@ -92,10 +96,25 @@ const HomePage = ({navigation}: Props) => {
             />
           </View>
         </View>
-        <View style={styles.mainSection} />
+        <View style={styles.containerLoader}>
+          <ServiceCarousel />
+        </View>
+
+        <CircleMolecule
+          styleContainer={styles.containerCircle}
+          value={dataUser.account.balance.toString()}
+        />
+        <View style={styles.containerImage}>
+          <Image
+              source={require('../../../assets/ilustrations/Saly-38.png')}
+              style={styles.logo}
+          />
+        </View>
       </SafeAreaView>
     </ImageBackground>
   );
 };
+
+
 
 export default HomePage;

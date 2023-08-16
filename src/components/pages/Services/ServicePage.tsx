@@ -1,10 +1,11 @@
 import React from 'react';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, View } from 'react-native';
 import InfoCardOrganism from '../../organisms/InfoCardOrganism/InfoCardOrganism';
 import { PersonInterface } from '../../../models/PersonInterface';
 import TitleMolecule from '../../molecules/TitleMolecule';
 import styles from './ServicesPageStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import ServiceCarousel from '../../services/Carousel/ServiceCarousel';
 
 
 interface Props {
@@ -25,7 +26,11 @@ const ServicePage = ({navigation, route}: Props) => {
       <SafeAreaView style={styles.safeArea}>
         <TitleMolecule>Tus Servicios</TitleMolecule>
 
-        <InfoCardOrganism data={data} profile={false} />
+        <InfoCardOrganism styleSectionTop={styles.cardInfo} data={data} profile={false} />
+
+        <View style={styles.containerLoader}>
+          <ServiceCarousel />
+        </View>
       </SafeAreaView>
     </ImageBackground>
   );
