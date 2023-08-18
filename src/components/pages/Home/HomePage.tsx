@@ -15,6 +15,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { NotificationInterface } from '../../../models/NotificationInterface';
 import CircleMolecule from '../../molecules/CircleMolecule';
 import ServiceCarousel from '../../services/Carousel/ServiceCarousel';
+import TextAtom from '../../atoms/TextAtom';
 
 
 
@@ -44,15 +45,21 @@ const HomePage = ({navigation}: Props) => {
       style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.headerButtons}>
-          <IconMolecule
-            containerIconStyles={styles.iconStyle}
-            iconName="person-outline"
-            iconSize={26}
-            iconColor="rgba(255, 255, 255, 0.9)"
-            onPress={() => navigation.navigate('ProfilePage', {...dataUser})}
-            activeOpacity={0.6}
-            button={true}
-          />
+          <View style={styles.headerRightButtonsContainer}>
+            <IconMolecule
+              containerIconStyles={(styles.iconStyle, styles.iconLeftStyle)}
+              iconName="person-outline"
+              iconSize={24}
+              iconColor="rgba(255, 255, 255, 0.9)"
+              onPress={() => navigation.navigate('ProfilePage', {...dataUser})}
+              activeOpacity={0.6}
+              button={true}
+            />
+            <View style={styles.headerText}>
+              <TextAtom style={styles.headerTextLabel}>Hola,</TextAtom>
+              <TextAtom style={styles.headerTextName}>{dataUser.name}</TextAtom>
+            </View>
+          </View>
           <View style={styles.headerRightButtons}>
             <IconMolecule
               containerIconStyles={styles.iconStyle}
@@ -106,8 +113,8 @@ const HomePage = ({navigation}: Props) => {
         />
         <View style={styles.containerImage}>
           <Image
-              source={require('../../../assets/ilustrations/Saly-38.png')}
-              style={styles.logo}
+            source={require('../../../assets/ilustrations/Saly-19.png')}
+            style={styles.logo}
           />
         </View>
       </SafeAreaView>

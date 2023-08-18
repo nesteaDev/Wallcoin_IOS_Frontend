@@ -14,12 +14,40 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 9,
+    paddingRight: 9,
     borderRadius: 40,
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
+  headerRightButtonsContainer: {
+    paddingLeft: 9,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderBottomStartRadius: 40,
+    borderStartStartRadius: 40,
+  },
+  headerText: {
+    padding: '5%',
+    borderRadius: 5,
+    marginHorizontal: '2%',
+  },
+  headerTextLabel: {
+    fontSize: 13,
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontWeight: '600',
+  },
+  headerTextName: {
+    fontSize: 15,
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontWeight: '600',
+  },
   iconStyle: {
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: 50,
+    padding: 5,
+  },
+  iconLeftStyle: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     borderRadius: 50,
     padding: 5,
   },
@@ -28,14 +56,14 @@ const styles = StyleSheet.create({
   },
   headerRightButtons: {
     flexDirection: 'row',
+    paddingVertical: 9,
   },
   textCardName: {
     color: 'red',
   },
   containerLoader: {
     marginTop: '3%',
-    // backgroundColor: 'rgba(0, 0, 0, 0.45)',
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
     height: '13%',
     width: '100%',
     borderRadius: 9,
@@ -44,8 +72,7 @@ const styles = StyleSheet.create({
     marginTop: '13%',
     height: 230,
     width: 230,
-    // backgroundColor: 'rgba(188, 130, 56, 1)',
-    marginBottom: '10%',
+    marginBottom: '5%',
   },
   mainSection: {
     marginTop: '5%',
@@ -54,9 +81,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   containerImage: {
-    width: '60%',
+    width: '70%',
     height: '40%',
-    transform: [{translateX: -75}, {translateY: -49}],
   },
   logo: {
     width: '100%',
