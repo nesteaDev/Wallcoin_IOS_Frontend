@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    // ...
+    "types": [
+      // ...
+      "@types/react-native-snap-carousel"
+    ]
+  },
+  "extends": "@tsconfig/react-native/tsconfig.json"
+}
