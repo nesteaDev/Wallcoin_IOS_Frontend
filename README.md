@@ -24,7 +24,7 @@ Digital wallet application that allows users to carry out financial transactions
 Login using Auth0 API, integration with google (or with any authentication system).
 
    <p align="center">
-         <img src="https://res.cloudinary.com/adev48/image/upload/v1692382073/Info%20Repositorios/ReactNative-NestJs-SofkaCourse/login-wallcoin_cjvkj9.pn" width="40%"> 
+         <img src="https://res.cloudinary.com/adev48/image/upload/v1692382073/Info%20Repositorios/ReactNative-NestJs-SofkaCourse/login-wallcoin_cjvkj9.png" width="40%"> 
 
    </p>
 
@@ -38,7 +38,7 @@ Login using Auth0 API, integration with google (or with any authentication syste
 Screen with details about balance account bottom Tabs Navigator and carousel with the services app.
 
    <p align="center">
-         <img src="https://res.cloudinary.com/adev48/image/upload/v1692389876/Info%20Repositorios/ReactNative-NestJs-SofkaCourse/home-wallcoin_yor0n3.pn" width="40%"> 
+         <img src="https://res.cloudinary.com/adev48/image/upload/v1692389876/Info%20Repositorios/ReactNative-NestJs-SofkaCourse/home-wallcoin_yor0n3.png" width="40%"> 
 
    </p>
 - ### To be Continued...
