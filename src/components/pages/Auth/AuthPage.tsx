@@ -5,34 +5,95 @@ import {
   Text,
   ImageBackground,
   TouchableOpacity,
+  Linking,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import styles from './AuthPageStyles';
 import { StackScreenProps } from '@react-navigation/stack';
+import { CreateUserRequestDto } from '../../../domain/dtos/user/CreateUserRequestDto';
+import axios from 'axios';
 
 
 
 interface Props extends StackScreenProps<any, any> {}
 const AuthPage = ({navigation}: Props) => {
 
-  const {authorize} = useAuth0();
+
+  const {authorize, user, isLoading } = useAuth0();
+  console.log(user);
 
   const onPress = async () => {
-    // TODO: Implementar validación al cancelar el login
-    try {
-      await authorize().finally(() => {
-        navigation.navigate('TabsNavigator');
-      });
-    } catch (e) {
-      console.log(e);
+
+      try {
+        await authorize().then(async () => {
+          if (user !== null) {
+
+            const responseUser = await axios.get(`http://localhost:3000/api/user/validate/${user?.sub}`);
+            console.log('Usuario validado en el backend:', responseUser.data);
+
+            if (responseUser.data === null){
+
+              const createUserDto: CreateUserRequestDto = {
+                name: user?.name || '',
+                email: user?.email || '',
+                urlImage: user?.picture || '',
+                token: user?.sub || '',
+              };
+
+              const responseAdd = await axios.post(
+                'http://localhost:3000/api/user',
+                createUserDto,
+              );
+              console.log('Usuario creado en el backend:', responseAdd.data);
+            } else {
+              console.log('Usuario ya existe en el backend');
+
+              const responseUserExist = await axios.get(
+                `http://localhost:3000/api/user/${responseUser.data?.idUser}`,
+              );
+              console.log('Usuario obtenido del backend:', responseUserExist.data);
+            }
+          }
+
+        }).finally(async () => {
+          if (user !== null || user !== undefined) {
+            navigation.navigate('TabsNavigator');
+          }
+        });
+      } catch (e) {
+        console.log('Error: ', e);
+      }
+  };
+
+  const openWebLink = async (url: string) => {
+    const supported = await Linking.canOpenURL(url);
+
+    if (supported) {
+      await Linking.openURL(url);
+    } else {
+      console.log(`No se puede abrir el enlace: ${url}`);
     }
   };
+
+  const handleOpenLink = () => {
+    const webURL = 'https://dev-jitjgfu48u7z2mxv.us.auth0.com/'; // Reemplaza con tu enlace web
+    openWebLink(webURL);
+  };
+
+  if (isLoading) {
+    return (
+      <View style={styles.container}>
+        <Text>Loading</Text>
+      </View>
+    );
+  }
 
   return (
     <ImageBackground
       source={require('../../../assets/g5.jpeg')}
       style={styles.backgroundImage}>
       <View style={styles.overlay}>
+        {isLoading}
         <Swiper
           style={styles.swiperContainer}
           dotColor="rgba(255,255,255,0.1)"
@@ -89,7 +150,9 @@ const AuthPage = ({navigation}: Props) => {
           <View>
             <Text style={styles.descriptionFooter}>
               ¿Aun no tienes una cuenta?{' '}
-              <Text style={styles.descriptionFooterStrong} onPress={onPress}>
+              <Text
+                style={styles.descriptionFooterStrong}
+                onPress={handleOpenLink}>
                 Regístrate
               </Text>
             </Text>
