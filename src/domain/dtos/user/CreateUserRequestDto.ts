@@ -5,4 +5,5 @@ export interface CreateUserRequestDto {
   email: string | undefined | null;
   urlImage: string | undefined | null;
   accounts?: Account[];
+  token?: string;
 }
