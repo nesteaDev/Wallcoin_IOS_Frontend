@@ -16,8 +16,7 @@ import { NotificationInterface } from '../../../models/NotificationInterface';
 import CircleMolecule from '../../molecules/CircleMolecule';
 import ServiceCarousel from '../../services/Carousel/ServiceCarousel';
 import TextAtom from '../../atoms/TextAtom';
-
-
+import {useSelector} from 'react-redux';
 
 
 interface Props extends StackScreenProps<any, any> {}
@@ -26,7 +25,10 @@ const dataUser: PersonInterface = PersonData;
 const dataNotification: NotificationInterface[] = NotificationData;
 
 const HomePage = ({navigation}: Props) => {
-  console.log(navigation);
+  // console.log(navigation);
+
+  const stateTask = useSelector((state: any) => state.userAuth);
+  console.log('stateTask: ', stateTask);
 
   const {clearSession} = useAuth0();
 
@@ -56,7 +58,7 @@ const HomePage = ({navigation}: Props) => {
               button={true}
             />
             <View style={styles.headerText}>
-              <TextAtom style={styles.headerTextLabel}>Hola,</TextAtom>
+              <TextAtom style={styles.headerTextLabel}>Hola</TextAtom>
               <TextAtom style={styles.headerTextName}>{dataUser.name}</TextAtom>
             </View>
           </View>
