@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   headerTextName: {
-    fontSize: 15,
+    fontSize: 14,
     color: 'rgba(255, 255, 255, 0.8)',
     fontWeight: '600',
   },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import {useAuth0} from 'react-native-auth0';
 import {
   View,
@@ -17,6 +18,9 @@ import axios from 'axios';
 
 interface Props extends StackScreenProps<any, any> {}
 const AuthPage = ({navigation}: Props) => {
+
+  const userState = useSelector((state: any) => state.userAuth);
+  console.log('userRedux: ', userState);
 
 
   const {authorize, user, isLoading } = useAuth0();
@@ -76,7 +80,7 @@ const AuthPage = ({navigation}: Props) => {
   };
 
   const handleOpenLink = () => {
-    const webURL = 'https://dev-jitjgfu48u7z2mxv.us.auth0.com/'; // Reemplaza con tu enlace web
+    const webURL = 'https://dev-jitjgfu48u7z2mxv.us.auth0.com/';
     openWebLink(webURL);
   };
 
